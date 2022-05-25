@@ -34,6 +34,7 @@ public class SearchEngine implements ISearchEngine {
     @Override
     public void indexDirectory(String directoryPath) {
         try {
+            webPageIndices = new HashMap<>();
             Path dir = Paths.get(directoryPath);
             Files.walk(dir).forEach(path -> makeDirIndices(path.toFile()));
         } catch (IOException e) {
@@ -100,5 +101,12 @@ public class SearchEngine implements ISearchEngine {
             }
         }
         return searchResultList;
+    }
+
+    public static void main(String[] args) {
+        SearchEngine searchEngine = new SearchEngine();
+        String filePath = "C:\\CSED\\2nd year\\2nd-semester\\Data Structure 2\\Labs\\Wikipedia Data Sample\\Wikipedia Data Sample\\wiki_00";
+        searchEngine.indexWebPage(filePath);
+        searchEngine.searchByWordWithRanking("Leonardo");
     }
 }

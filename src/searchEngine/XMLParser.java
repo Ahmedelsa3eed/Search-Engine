@@ -48,7 +48,7 @@ public class XMLParser {
 					String[] contextWords = context.split("\\s");
 
 					//create new B-tree for each new documentation
-					BTree btree = new BTree(5);
+					BTree btree = new BTree(4);
 
 					//save the words into the tree
 					for (String contextWord : contextWords) {
@@ -63,6 +63,7 @@ public class XMLParser {
 		}
 		catch(Exception e) {
 			System.out.println("couldn't find or open the file");
+			e.printStackTrace();
 			return null;
 		}
 	}

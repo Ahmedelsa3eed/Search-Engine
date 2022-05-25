@@ -1,7 +1,5 @@
 package searchEngine;
 
-import interfaces.ISearchResult;
-
 public class SearchResult implements ISearchResult {
     private String id;
     private int rank;
