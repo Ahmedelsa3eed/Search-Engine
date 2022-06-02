@@ -34,7 +34,7 @@ class SearchEngineTest {
     @org.junit.jupiter.api.Test
     void searchByWordWithRanking() {
         searchEngine.indexWebPage(filePath);
-        List<ISearchResult> result = searchEngine.searchByWordWithRanking("Leonardo");
+        List<ISearchResult> result = searchEngine.searchByWordWithRanking("leonardo");
         assertAll(
                 () -> assertEquals(1, result.size()),
                 () -> assertEquals(2, result.get(0).getRank())
@@ -55,7 +55,8 @@ class SearchEngineTest {
     @org.junit.jupiter.api.Test
     void searchByMultipleWordWithRanking() {
         searchEngine.indexWebPage(filePath);
-        List<ISearchResult> result = searchEngine.searchByMultipleWordWithRanking("Peya Davis Cup Britain");
+        String sentence = "Peya Davis Cup Britain";
+        List<ISearchResult> result = searchEngine.searchByMultipleWordWithRanking(sentence.toLowerCase());
         assert result != null;
         assertEquals("7697641", result.get(0).getId());
     }
@@ -63,7 +64,8 @@ class SearchEngineTest {
     @org.junit.jupiter.api.Test
     void searchByMultipleWordWithRankingSecondTest() {
         searchEngine.indexWebPage(filePath);
-        List<ISearchResult> result = searchEngine.searchByMultipleWordWithRanking("Mexico Olympics Summer");
+        String sentence = "Mexico Olympics Summer";
+        List<ISearchResult> result = searchEngine.searchByMultipleWordWithRanking(sentence.toLowerCase());
         List<String> ids = new ArrayList<>();
         for (ISearchResult res: result) {
             ids.add(res.getId());
@@ -79,9 +81,9 @@ class SearchEngineTest {
         searchEngine.indexWebPage(filePath);
         String deletedDocsPath = "C:\\CSED\\2nd year\\2nd-semester\\Data Structure 2\\Labs\\hasDocToDelete\\wiki_00";
         searchEngine.deleteWebPage(deletedDocsPath);
-        List<ISearchResult> res1 = searchEngine.searchByWordWithRanking("Minolta");
+        List<ISearchResult> res1 = searchEngine.searchByWordWithRanking("minolta");
         List<ISearchResult> res2 = searchEngine.searchByWordWithRanking("twentiethcentury");
-        List<ISearchResult> res3 = searchEngine.searchByWordWithRanking("Stockton");
+        List<ISearchResult> res3 = searchEngine.searchByWordWithRanking("stockton");
         assertAll(
                 () -> assertEquals(0, res1.size()),
                 () -> assertEquals(0, res2.size()),

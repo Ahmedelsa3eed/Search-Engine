@@ -52,7 +52,7 @@ public class XMLParser {
 
 					//save the words into the tree
 					for (String contextWord : contextWords) {
-						btree.insert(contextWord, "");
+						btree.insert(contextWord.toLowerCase(), "");
 					}
 					
 					//save the tree

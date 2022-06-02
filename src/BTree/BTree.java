@@ -378,11 +378,7 @@ public class BTree implements IBTree{
         b.insert("12","");
 
         b.show();
-        /*10 8 9 11 15 17 20
-not found*/
 
-        /*10 8 9 11 12 15 20
-found*/
         BTreeNode n = b.search(b.root,"12");
         System.out.println("the values of 12 is "+n.values[n.find("12")]);
         if (b.search(b.root,"20") != null){
@@ -401,6 +397,5 @@ found*/
         System.out.println(x);
         System.out.println();
         b.show();
-
     }
 }
